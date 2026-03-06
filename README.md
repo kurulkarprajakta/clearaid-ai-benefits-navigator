@@ -1,56 +1,56 @@
 # ClearAid – AI Benefits Navigator
 
-ClearAid is an AI-powered benefits navigator designed to help underserved communities and immigrants identify government benefits they may be eligible for.
+Live Demo: https://clearaid.lovable.app
+
+ClearAid is an AI-powered benefits navigator designed to help underserved communities and immigrants discover government benefits they may be eligible for. The product simplifies complex eligibility rules through multilingual support, AI-guided navigation, and step-by-step assistance.
+
+---
 
 ## Problem
-Many people miss important benefits because eligibility rules are complex, information is fragmented, and application steps are difficult to understand.
+
+Millions of eligible individuals miss out on public benefits because eligibility rules are complex, information is fragmented across multiple websites, and application steps are difficult to understand.
+
+Underserved communities and immigrants often face additional barriers such as language limitations and lack of clear guidance.
+
+---
 
 ## Solution
-ClearAid helps users:
-- understand possible benefit eligibility
-- get simplified, step-by-step guidance
-- access information in a more user-friendly way
-- reduce confusion around benefits discovery
+
+ClearAid provides a simple interface where users can explore potential benefits through an AI-guided experience. The system captures key user information, evaluates eligibility criteria, and provides clear recommendations along with step-by-step guidance on how to proceed.
+
+The goal is to make benefits discovery easier, faster, and more accessible.
+
+---
 
 ## Key Features
-- AI-assisted benefit discovery
-- Simplified eligibility guidance
-- User-friendly conversational experience
-- Designed for accessibility and clarity
-- Potential for multilingual support
 
-## Target Users
-- Immigrants
-- Low-income families
-- Underserved communities
-- First-time applicants navigating public benefits
+• AI navigation agent that guides users through benefit discovery  
+• Multilingual support to improve accessibility  
+• Personalized eligibility reasoning based on user inputs  
+• Step-by-step guidance explaining documents and next steps  
+• Simplified experience for navigating complex government programs
 
-## Product Vision
-ClearAid aims to make benefits discovery easier, faster, and more accessible through AI-powered guidance.
+---
 
-## My Role
-- Product ideation
-- Problem definition
-- Feature design
-- AI workflow conceptualization
-- Prototype planning
+## Architecture Diagram
 
-## Tech / Concept Stack
-- Generative AI
-- Prompt design
-- Conversational UX
-- Rule/eligibility reasoning
-- Prototype-ready for Streamlit or web app implementation
+```mermaid
+flowchart LR
+    A[User / Applicant] --> B[ClearAid Web Interface<br/>Lovable Frontend]
 
-## Future Enhancements
-- Live eligibility checker
-- Multilingual support
-- Application progress tracking
-- State-specific benefit recommendations
-- Integration with official resources
+    B --> C[Language Selection Layer<br/>Multilingual Support]
+    C --> D[AI Navigation Agent<br/>Conversational guidance]
 
-## Status
-Concept / prototype project built as part of my academic and product portfolio.
+    D --> E[User Profile Capture<br/>Household, income, location]
+    E --> F[Eligibility Reasoning Engine]
 
-## Author
-Prajakta Kurulkar
+    F <--> G[Benefits Knowledge Base<br/>Programs, criteria, documents]
+
+    F --> H[Personalized Benefit Recommendations]
+    H --> I[Step-by-Step Guidance Engine]
+
+    I --> J[User Output Interface<br/>Clear recommendations + next steps]
+
+    J --> K[Future Integrations]
+    K --> L[Official benefit portals]
+    K --> M[Application progress tracking]
