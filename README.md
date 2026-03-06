@@ -1,56 +1,119 @@
-# ClearAid – AI Benefits Navigator
+# ClearAid – AI-Guided Benefits Discovery & Application Navigation
 
-Live Demo: https://clearaid.lovable.app
+![ClearAid Logo](assets/logo.png)
 
-ClearAid is an AI-powered benefits navigator designed to help underserved communities and immigrants discover government benefits they may be eligible for. The product simplifies complex eligibility rules through multilingual support, AI-guided navigation, and step-by-step assistance.
+## Project Snapshot
 
----
+**ClearAid** is an AI-powered benefits navigator designed to help underserved communities, immigrants, and first-time applicants discover relevant support programs and move through applications with less confusion.
+
+**Live Demo:** https://clearaid.lovable.app  
+**Project Type:** AI Product / Social Impact / Portfolio Prototype  
+**Focus Areas:** accessibility, multilingual support, agentic guidance, eligibility precheck, application navigation
 
 ## Problem
 
-Millions of eligible individuals miss out on public benefits because eligibility rules are complex, information is fragmented across multiple websites, and application steps are difficult to understand.
-
-Underserved communities and immigrants often face additional barriers such as language limitations and lack of clear guidance.
-
----
+Many eligible people never receive government or community benefits because discovery and application processes are confusing, bureaucratic, and intimidating. This challenge is especially severe for immigrants, first-time applicants, and users with limited English proficiency.
 
 ## Solution
 
-ClearAid provides a simple interface where users can explore potential benefits through an AI-guided experience. The system captures key user information, evaluates eligibility criteria, and provides clear recommendations along with step-by-step guidance on how to proceed.
+ClearAid helps users:
+- understand what help exists
+- narrow down likely benefit pathways
+- interpret confusing application questions
+- prepare documents
+- move forward with a step-by-step application plan in their preferred language
 
-The goal is to make benefits discovery easier, faster, and more accessible.
+## Core Capabilities
 
----
+- Multilingual support
+- AI-guided benefit discovery
+- Confidence-based program recommendations
+- Explainability through “Why am I seeing this?”
+- Step-by-step Navigator flow
+- Document checklist generation
+- Follow-up planning and call scripts
+- Skills-based agentic orchestration
 
-## Key Features
 
-• AI navigation agent that guides users through benefit discovery  
-• Multilingual support to improve accessibility  
-• Personalized eligibility reasoning based on user inputs  
-• Step-by-step guidance explaining documents and next steps  
-• Simplified experience for navigating complex government programs
+## System Architecture
 
----
+ClearAid combines:
+- a **Lovable UI prototype** for user interaction
+- a **skills-based reasoning layer** for routing, explanation, checklist generation, and navigation
+- **Codex-based orchestration/testing**
+- an **MCP filesystem tool** for local skill documentation access
 
-## Architecture Diagram
+See [system_design.md](system_design.md) for the full architecture.
 
-```mermaid
-flowchart LR
-    A[User / Applicant] --> B[ClearAid Web Interface<br/>Lovable Frontend]
+## AI Skill Architecture
 
-    B --> C[Language Selection Layer<br/>Multilingual Support]
-    C --> D[AI Navigation Agent<br/>Conversational guidance]
+ClearAid uses five reusable skills:
 
-    D --> E[User Profile Capture<br/>Household, income, location]
-    E --> F[Eligibility Reasoning Engine]
+- **eligibility_precheck_router** – narrows likely benefit pathways and asks only the most important follow-up questions
+- **plain_language_explainer** – simplifies confusing form language with examples and reassurance
+- **document_checklist_builder** – creates a personalized checklist and alternatives if documents are missing
+- **next_step_advisor** – recommends ordered, realistic next steps based on urgency and constraints
+- **application_navigator** – guides users step-by-step through the process with progress gating
 
-    F <--> G[Benefits Knowledge Base<br/>Programs, criteria, documents]
+See [ai_skills_overview.md](ai_skills_overview.md) and the `/skills` folder.
 
-    F --> H[Personalized Benefit Recommendations]
-    H --> I[Step-by-Step Guidance Engine]
+## Example Product Journey
 
-    I --> J[User Output Interface<br/>Clear recommendations + next steps]
+A user in Washington selects a need category, shares a small amount of profile information, chooses a preferred language, and receives:
+- likely benefit options
+- confidence indicators
+- explainability notes
+- document preparation help
+- a structured application plan
+- follow-up guidance
 
-    J --> K[Future Integrations]
-    K --> L[Official benefit portals]
-    K --> M[Application progress tracking]
+## Real Runs and Evidence
+
+This repo includes evidence from:
+- prototype screenshots
+- Codex skill orchestration runs
+- MCP filesystem proof for local skill reading
+
+See [benchmark_summary.md](benchmark_summary.md) for run summaries and comparison notes.
+
+## My Role
+
+- Product ideation and problem definition
+- User flow design
+- Prototype direction in Lovable
+- Skills pack design and documentation
+- AI workflow orchestration testing
+- Evaluation, benchmarking, and report writing
+
+## Tech / Build Stack
+
+- Lovable
+- Markdown-based reusable skills
+- Codex
+- MCP filesystem tool
+- Product design / conversational UX
+
+## Repo Contents
+
+- `README.md` – project overview
+- `system_design.md` – system architecture and orchestration
+- `product_overview.md` – vision, users, and value proposition
+- `feature_list.md` – current and planned features
+- `ai_skills_overview.md` – skill-based design
+- `benchmark_summary.md` – run evidence and benchmark summary
+- `skills/` – five reusable AI skills
+- `assets/` – screenshots, logos, and execution evidence
+
+## Future Enhancements
+
+- ZIP/county-specific resource routing
+- stronger location-aware retrieval
+- backend skill invocation APIs
+- better structured logging and evaluation
+- richer multilingual assistance and edge-case handling
+
+## Author
+
+Prajakta Kurulkar  
+MS Information Systems – University of Washington  
+AI Products | Product Management | FinTech | Social Impact
