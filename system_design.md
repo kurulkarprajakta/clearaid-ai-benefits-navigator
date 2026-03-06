@@ -2,108 +2,78 @@
 
 ## Overview
 
-ClearAid is an AI-powered benefits navigation platform designed to simplify how underserved users discover and apply for government benefits.
+ClearAid is an AI-guided benefits discovery and application navigation system designed to support underserved users through a low-stress, structured experience.
 
-The system combines conversational guidance, eligibility reasoning, and structured benefit information to provide personalized recommendations and actionable next steps.
-
----
+The system combines a user-facing prototype with a reusable skills-based reasoning layer. The current implementation uses a Lovable UI, a five-skill Markdown skills pack, Codex-based execution/testing, and an MCP filesystem tool demonstration.
 
 ## High-Level Architecture
 
-The platform consists of five main components:
+The system has four main layers:
 
-1. Web Interface
-2. Language Support Layer
-3. AI Navigation Agent
-4. Eligibility Reasoning Engine
-5. Benefits Knowledge Base
+1. **UI Layer**
+   - Lovable-based frontend
+   - captures need category, location, profile details, language, and user constraints
+   - displays results, confidence meters, explainability, and Navigator steps
 
-These components work together to capture user inputs, evaluate eligibility criteria, and generate clear benefit recommendations.
+2. **Skill Layer**
+   - eligibility_precheck_router
+   - plain_language_explainer
+   - document_checklist_builder
+   - next_step_advisor
+   - application_navigator
 
----
+3. **Execution / Orchestration Layer**
+   - Codex is used to install and invoke skills in realistic runs
+   - skills are chained depending on user goal and friction point
 
-## System Flow
+4. **Tool Access Layer**
+   - MCP filesystem tool in Claude Desktop used to read local skill documentation and confirm successful access
 
-1. User Interaction
+## End-to-End Flow
 
-The user accesses the ClearAid interface through a web application. Users can select their preferred language and begin interacting with the system.
+1. User selects need category
+2. User provides location and lightweight contextual details
+3. User chooses language preference
+4. eligibility_precheck_router generates likely benefit pathways and confidence level
+5. next_step_advisor recommends a prioritized starting path
+6. document_checklist_builder creates a preparation checklist
+7. plain_language_explainer simplifies confusing form questions when needed
+8. application_navigator guides the user step-by-step through the application process
 
-2. AI Navigation Agent
+## Output Types
 
-The AI agent guides users through a structured conversation to collect relevant information such as:
+ClearAid returns:
+- program shortlist
+- confidence meter
+- “Why am I seeing this?” explanation
+- additional data requests
+- document checklist
+- next-step guidance
+- navigator flow with progress tracking
+- follow-up plan and call support
 
-• household size  
-• income level  
-• location  
-• employment status  
-• family details
+## Why this architecture matters
 
-The agent simplifies questions and provides context so that users understand why information is being requested.
+This design makes ClearAid more than a static website. The UI is backed by reusable product logic that can be composed differently based on the user’s needs, urgency, and barriers.
 
-3. User Profile Construction
+## Key Product Principles
 
-Collected information is organized into a structured user profile which is used for eligibility reasoning.
+- privacy-first inputs
+- no eligibility guarantees
+- multilingual accessibility
+- trauma-informed guidance
+- structured, low-stress support
+- explainable recommendations
 
-4. Eligibility Reasoning Engine
+## Current Limitations
 
-The eligibility engine evaluates the user profile against predefined benefit eligibility criteria.
+- state/county variation can reduce precision
+- exact local resource routing is limited without ZIP/county-specific retrieval
+- the current system is a prototype and not yet connected to production APIs
 
-This reasoning layer determines which benefits the user may qualify for and filters the most relevant options.
+## Next Improvements
 
-5. Benefits Knowledge Base
-
-The knowledge base stores structured information about benefits including:
-
-• program descriptions  
-• eligibility criteria  
-• required documents  
-• application steps
-
-The eligibility engine queries this knowledge base to match programs with the user profile.
-
-6. Recommendation Generation
-
-Based on the eligibility analysis, ClearAid generates a set of recommended programs.
-
-Each recommendation includes:
-
-• benefit description  
-• eligibility explanation  
-• required documents  
-• estimated next steps
-
-7. Guidance Engine
-
-The system converts eligibility results into simple, step-by-step instructions so users clearly understand what actions to take next.
-
----
-
-## Key Design Principles
-
-Accessibility  
-The system prioritizes clarity and simplicity to ensure users with limited technical knowledge can navigate the process.
-
-Transparency  
-Users receive explanations of why certain benefits are recommended.
-
-Scalability  
-The architecture allows additional benefits, languages, and integrations to be added over time.
-
-Modularity  
-Each component (AI agent, eligibility engine, knowledge base) can be improved independently.
-
----
-
-## Potential Future Architecture Enhancements
-
-• Integration with official government application portals  
-• Automated document checklist generation  
-• Application status tracking  
-• Personalized reminders and notifications  
-• Expanded multilingual support
-
----
-
-## Intended Impact
-
-ClearAid aims to reduce the friction and confusion involved in benefits discovery and improve access to critical support programs for underserved populations.
+- add county/ZIP-aware resource lookup
+- integrate backend orchestration
+- log skill invocation and reasoning traces
+- improve edge-case handling and benchmark coverage
