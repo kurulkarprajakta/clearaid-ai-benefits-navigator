@@ -1,26 +1,39 @@
 # Product Overview – ClearAid
 
 ## Vision
-ClearAid aims to make public-benefit discovery easier, more accessible, and less intimidating for underserved users.
+
+ClearAid aims to make benefits discovery and application navigation easier, clearer, and less intimidating for underserved communities.
 
 ## Target Users
-- Immigrants
-- Low-income households
-- First-time applicants
-- Underserved communities facing language or process barriers
 
-## Core User Problem
-Many users do not know which benefits they may qualify for, where to start, or what documents and actions are required.
+- immigrants
+- first-time applicants
+- users with limited English proficiency
+- low-income households
+- users facing form confusion or application anxiety
+
+## User Problem
+
+Many people do not know:
+- what programs may be relevant
+- which questions matter
+- what documents to gather
+- how to start
+- how to follow up
 
 ## Product Value
-ClearAid simplifies benefits navigation through:
-- multilingual accessibility
-- conversational AI guidance
-- structured recommendations
-- step-by-step next actions
 
-## Key Differentiators
-- Accessibility-first product framing
-- AI agent for navigation instead of static information pages
-- Guidance-oriented output, not just information display
-- Strong social-impact use case
+ClearAid reduces this friction by combining:
+- guided benefit discovery
+- multilingual explanations
+- confidence-based recommendations
+- document preparation support
+- step-by-step application guidance
+
+## Differentiators
+
+- skill-based AI architecture
+- plain-language explanations
+- application navigator with progress steps
+- confidence and explainability features
+- barrier-aware support for low internet or limited English users
